@@ -1,0 +1,154 @@
+/* Медиа запросы */
+@media (max-width: 500px) {
+   .title {
+      font-size: 26px;
+   }
+   .promo {
+      .header {
+         flex-direction: column;
+         &__official {
+            display: none;
+         }
+         &__contacts {
+            align-items: center;
+         }
+      }
+   }
+
+   .button {
+      &--main {
+         font-size: 14px;
+      }
+   }
+
+   .consultation {
+      &__title {
+         margin-bottom: 25px;
+      }
+   }
+}
+
+@media (max-width: 638px) {
+   .promo {
+      .header {
+         flex-wrap: wrap;
+         &__logo {
+            order: 1;
+            margin-bottom: 20px;
+         }
+         &__official {
+            order: 3;
+            &-title {
+               font-size: 10px;
+            }
+         }
+         &__contacts {
+            order: 2;
+            &-subtitle {
+               font-size: 12px;
+            }
+         }
+      }
+      &__wrapper {
+         align-items: center;
+      }
+      &__header {
+         text-align: center;
+         font-size: 36px;
+      }
+      &__subheader {
+         text-align: center;
+         font-size: 20px;
+      }
+      &__icons {
+         flex-direction: column;
+      }
+      &__icon {
+         display: flex;
+         max-width: 500px;
+         align-items: center;
+         margin: 0 auto 20px;
+      }
+   }
+
+   .consultation {
+      padding: 70px 0 60px;
+      &__title {
+         text-align: center;
+      }
+      &__desc {
+         text-align: center;
+         margin: 0 auto 36px;
+      }
+   }
+
+   .feed-form {
+      max-width: 100%;
+   }
+
+   .catalog {
+      padding-bottom: 50px;
+
+      &__title {
+         margin-bottom: 30px;
+      }
+
+      &__tabs {
+         flex-direction: column;
+         margin-bottom: 30px;
+      }
+
+      &__tab {
+         width: 100%;
+
+         &:not(:last-child) {
+            margin-bottom: 20px;
+         }
+      }
+   }
+
+   .reviews {
+      &__title {
+         margin-bottom: 50px;
+      }
+
+      &__item {
+         flex-direction: column;
+         margin-bottom: 50px;
+
+         &-image {
+            margin: 0 auto 30px;
+         }
+
+         &-inner {
+            text-align: center;
+         }
+
+         &-text {
+            text-align: justify;
+         }
+      }
+   }
+}
+
+@media (max-width: 850px) {
+   .advantage {
+      &__title {
+         margin-bottom: 50px;
+      }
+      &__item {
+         flex-direction: column;
+         max-width: 80%;
+         margin: 0 auto 50px;
+         &:last-child {
+            margin-bottom: 0;
+         }
+      }
+   }
+}
+
+@media (max-width: 950px) {
+   .catalog__content {
+      justify-content: space-evenly;
+   }
+}
