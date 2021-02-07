@@ -45,7 +45,7 @@
 
    &__content {
       display: none;
-      justify-content: space-between;
+      justify-content: space-around;
       flex-wrap: wrap;
       &--active {
          display: flex;
@@ -130,9 +130,6 @@
 
    &__wrapper {
       position: relative;
-   }
-
-   &__content {
    }
 
    &__list {

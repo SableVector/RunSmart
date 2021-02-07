@@ -4,6 +4,7 @@
    background-color: $main-color;
    border-radius: 5px;
    text-transform: uppercase;
+   transition: 0.3s all;
    
    &--header {
       padding: 10px 20px;
@@ -30,5 +31,11 @@
       width: 100%;
       font-size: 14px;
       font-weight: 500;
+   }
+
+   &:hover,
+   &:focus {
+      background-color: #d60000;
+      box-shadow: 0 0 10px $main-color;
    }
 }

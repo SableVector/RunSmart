@@ -14,30 +14,31 @@
       color: $white;
       text-align: center;
    }
-   
+
    &__addr {
-      font-style:normal;
+      font-style: normal;
       font-weight: 500;
-      margin-bottom: 36px;
+      margin-bottom: 21px;
    }
-   
+
    &__phone {
       display: block;
+      padding: 15px 0;
       color: $white;
       font-weight: 700;
-      margin-bottom: 36px;
+      margin-bottom: 21px;
 
       &:hover {
          text-decoration: underline;
       }
    }
-   
+
    &__social {
       max-width: 212px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      
+
       &-item {
          flex: 0 0 52px;
          display: flex;
@@ -46,10 +47,18 @@
          height: 52px;
          border: 2px solid $white;
          border-radius: 50%;
+         transition: all 0.2s;
+
+         &:hover,
+         &:focus {
+            box-shadow: 0 0 30px $white;
+         }
+
       }
-   
+
       &-img {
          height: 27px;
+         transition: all 0.3s;
       }
    }
 }

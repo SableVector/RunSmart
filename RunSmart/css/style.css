@@ -438,9 +438,8 @@ ul {
 
 .catalog__content {
   display: none;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -670,14 +669,15 @@ ul {
 .footer__addr {
   font-style: normal;
   font-weight: 500;
-  margin-bottom: 36px;
+  margin-bottom: 21px;
 }
 
 .footer__phone {
   display: block;
+  padding: 15px 0;
   color: #fff;
   font-weight: 700;
-  margin-bottom: 36px;
+  margin-bottom: 21px;
 }
 
 .footer__phone:hover {
@@ -711,10 +711,22 @@ ul {
   height: 52px;
   border: 2px solid #fff;
   border-radius: 50%;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.footer__social-item:hover,
+.footer__social-item:focus {
+  -webkit-box-shadow: 0 0 30px #fff;
+          box-shadow: 0 0 30px #fff;
 }
 
 .footer__social-img {
   height: 27px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 /* === BUTTONS === */
@@ -724,6 +736,9 @@ ul {
   background-color: #C70101;
   border-radius: 5px;
   text-transform: uppercase;
+  -webkit-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  transition: 0.3s all;
 }
 
 .button--header {
@@ -751,6 +766,13 @@ ul {
   width: 100%;
   font-size: 14px;
   font-weight: 500;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #d60000;
+  -webkit-box-shadow: 0 0 10px #C70101;
+          box-shadow: 0 0 10px #C70101;
 }
 
 /* Медиа запросы */
@@ -888,6 +910,10 @@ ul {
 
   .catalog__tab:not(:last-child) {
     margin-bottom: 20px;
+  }
+
+  .reviews {
+    padding-bottom: 50px;
   }
 
   .reviews__title {
