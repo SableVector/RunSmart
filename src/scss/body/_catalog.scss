@@ -87,15 +87,18 @@
    }
 
    &__link {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 14px;
-      font-weight: 500;
-      color: $main-color;
-      text-transform: uppercase;
-      text-decoration: underline;
+      &-details,
+      &-back {
+         position: absolute;
+         bottom: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         font-size: 14px;
+         font-weight: 500;
+         color: $main-color;
+         text-transform: uppercase;
+         text-decoration: underline;
+      }
    }
 
    hr {
@@ -130,6 +133,7 @@
 
    &__wrapper {
       position: relative;
+      overflow: hidden;
    }
 
    &__list {
@@ -138,12 +142,12 @@
       right: 0;
       bottom: 0;
       left: 0;
+      transform: translateX(-150%);
       background-color: #fff;
-      opacity: 0;
       transition: .3s all;
       
       &--active {
-         opacity: 1;
+         transform: translateX(0);
       }
 
       &-item {

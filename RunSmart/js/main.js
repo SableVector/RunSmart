@@ -33,10 +33,17 @@ $(document).ready(function () {
 
    // Скрипт для отображения описания товара в карточках
 
-   $('.catalog-item__link').each(function(i) {
+   $('.catalog-item__link-details').each(function(i) {
       $(this).on('click', function(e) {
          e.preventDefault();
          $('.catalog-item__list').eq(i).toggleClass('catalog-item__list--active');
+      })
+   });
+
+   $('.catalog-item__link-back').each(function(i) {
+      $(this).on('click', function(e) {
+         e.preventDefault();
+         $('.catalog-item__list').eq(i).removeClass('catalog-item__list--active');
       })
    });
 
