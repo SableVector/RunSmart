@@ -62,6 +62,10 @@
    overflow: hidden;
    margin-bottom: 20px;
 
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
    &__img {
       img {
          display: block;
@@ -89,6 +93,9 @@
    &__link {
       &-details,
       &-back {
+         width: 100%;
+         padding: 10px 0;
+
          position: absolute;
          bottom: 0;
          left: 50%;
@@ -101,17 +108,14 @@
       }
    }
 
-   hr {
-      background-color: $silver;
-      margin-top: 19px;
-      margin-bottom: 21px;
-      border: none;
-   }
-
    &__footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+
+         padding-top: 21px;
+         border-top: 1px solid $silver;
    }
 
    &__prices {
@@ -134,6 +138,7 @@
    &__wrapper {
       position: relative;
       overflow: hidden;
+      margin-bottom: 19px;
    }
 
    &__list {
