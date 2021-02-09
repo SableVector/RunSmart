@@ -33,18 +33,53 @@ $(document).ready(function () {
 
    // Скрипт для отображения описания товара в карточках
 
-   $('.catalog-item__link-details').each(function(i) {
-      $(this).on('click', function(e) {
+   $('.catalog-item__link-details').each(function (i) {
+      $(this).on('click', function (e) {
          e.preventDefault();
-         $('.catalog-item__list').eq(i).toggleClass('catalog-item__list--active');
+         $('.catalog-item__list').eq(i).addClass('catalog-item__list--active');
       })
    });
 
-   $('.catalog-item__link-back').each(function(i) {
-      $(this).on('click', function(e) {
+   $('.catalog-item__link-back').each(function (i) {
+      $(this).on('click', function (e) {
          e.preventDefault();
          $('.catalog-item__list').eq(i).removeClass('catalog-item__list--active');
       })
+   });
+
+   // Модальные окна
+
+   $('[data-modal=consultation]').on('click', function () {
+      $('.overlay, #consultation').fadeIn('slow');
+   });
+
+   $('.button--catalog').on('click', function () {
+      $('.overlay, #order').fadeIn('slow');
+   })
+
+   $('.button--catalog').each(function (i) {
+      $(this).on('click', function () {
+         $('#order .modal__subtitle').text($('.catalog-item__subtitle').eq(i).text());
+         $('.overlay, #order').fadein('slow');
+      });
+   });
+
+   $('.modal__close').on('click', function () {
+      $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
+   });
+
+   $('.promo__link-item a').on('click', function () {
+      let el = $(this);
+      let dest = el.attr('href', '#catalog'); // получаем направление
+      let ScrolToCatalog = el.attr('href');
+
+      $('html, body').animate({
+         scrollTop: $(ScrolToCatalog).offset().top
+      }, {
+         duration: 1500,   // по умолчанию «400» 
+         easing: "linear" // по умолчанию «swing» 
+      });
+      return false;
    });
 
 });

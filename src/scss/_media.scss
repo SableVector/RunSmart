@@ -26,6 +26,27 @@
          margin-bottom: 25px;
       }
    }
+
+   .modal {
+      margin: 0 auto;
+
+      &__close {
+         top: 10px;
+         right: 10px;
+      }
+
+      &__title {
+         font-size: 15px;
+      }
+
+      &__subtitle {
+         font-size: 12px;
+      }
+
+      .button--feed-form {
+         font-size: 12px;
+      }
+   }
 }
 
 @media (max-width: 638px) {
