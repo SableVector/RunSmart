@@ -151,9 +151,9 @@
          Просто заполните форму заявки<br>
          и мы перезвоним вам в течении 10&nbsp;минут
       </p>
-      <form class="feed-form" action="#">
+      <form class="feed-form consultation-form" action="#">
          <input name="name" required type="text" placeholder="Ваше имя" value="">
-         <input name="phone" required type="number" placeholder="Ваш телефон" value="">
+         <input name="phone" required placeholder="Ваш телефон" value="">
          <input name="email" required type="email" placeholder="Ваше E-mail" value="">
 
          <button class="button button--feed-form" type="submit">Заказать консультацию</button>
@@ -792,7 +792,7 @@
 </footer>
 
 	<div class="overlay">
-			<div class="modal" id="consultation">
+		<div class="modal" id="consultation">
    <button type="button" class="modal__close">
       &times;
    </button>
@@ -803,9 +803,9 @@
       и мы перезвоним вам в течении 10 минут
    </p>
    <form class="feed-form" action="#">
-      <input name="name" required type="text" placeholder="Ваше имя" value="">
-      <input name="phone" required type="number" placeholder="Ваш телефон" value="">
-      <input name="email" required type="email" placeholder="Ваше E-mail" value="">
+      <input name="name" type="text" placeholder="Ваше имя" value="">
+      <input name="phone" placeholder="Ваш телефон" value="">
+      <input name="email" type="email" placeholder="Ваше E-mail" value="">
 
       <button class="button button--feed-form" type="submit">Заказать консультацию</button>
    </form>
@@ -823,7 +823,7 @@
    </p>
    <form class="feed-form" action="#">
       <input name="name" required type="text" placeholder="Ваше имя" value="">
-      <input name="phone" required type="number" placeholder="Ваш телефон" value="">
+      <input name="phone" required placeholder="Ваш телефон" value="">
       <input name="email" required type="email" placeholder="Ваше E-mail" value="">
 
       <button class="button button--feed-form" type="submit">купить</button>
@@ -846,6 +846,8 @@
 
 	<script src="js/jquery.3.5.1.min.js"></script>
 	<script src="js/slick.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
 	<script src="js/main.min.js"></script>
 	
 </body>

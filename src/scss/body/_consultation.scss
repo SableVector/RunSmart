@@ -17,4 +17,15 @@
       max-width: 400px;
       margin-bottom: 36px;
    }
+
+   .error {
+      border: 2px solid $main-color;
+   }
+   label.error {
+      color: $white;
+      border: none;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+   }
 }

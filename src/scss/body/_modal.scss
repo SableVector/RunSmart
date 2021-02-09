@@ -49,6 +49,17 @@
          margin-bottom: 0;
       }
    }
+
+   .error {
+      border: 1px solid $main-color;
+   }
+   label.error {
+      border: none;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+   }
+
 }
 
 #consultation, 

@@ -33,20 +33,16 @@ $(document).ready(function () {
 
    // Скрипт для отображения описания товара в карточках
 
-   $('.catalog-item__link-details').each(function (i) {
-      $(this).on('click', function (e) {
-         e.preventDefault();
-         $('.catalog-item__list').eq(i).addClass('catalog-item__list--active');
-      })
-   });
+   function detailsLink (link) {
+      $(link).each(function (i) {
+         $(this).on('click', function (e) {
+            e.preventDefault();
+            $('.catalog-item__list').eq(i).toggleClass('catalog-item__list--active');
+         })
+      });
+   };
 
-   $('.catalog-item__link-back').each(function (i) {
-      $(this).on('click', function (e) {
-         e.preventDefault();
-         $('.catalog-item__list').eq(i).removeClass('catalog-item__list--active');
-      })
-   });
-
+   
    // Модальные окна
 
    $('[data-modal=consultation]').on('click', function () {
@@ -82,4 +78,42 @@ $(document).ready(function () {
       return false;
    });
 
+   // Validy scripts
+   function validateForms(form) {
+      $(form).validate({
+         rules: {
+            name: "required",
+            phone: "required",
+            email: {
+               required: true,
+               email: true
+            },
+         },
+         messages: {
+            name: "Введите Ваше имя",
+            phone: "Введите Ваш телефон",
+            email: {
+               required: "Введите вашу почту",
+               email: "Неправильно введен адрес почты"
+            }
+         },
+      });
+   }
+
+   // Маска для телефона type="number" нужно удалить
+
+   // $("#date").mask("99/99/9999");
+   $('input[name="phone"]').mask('+3 (999) 999 99 99');
+   // $("#tin").mask("99-9999999");
+   // $("#ssn").mask("999-99-9999");
+
+
+
+   
+   /* Вызов функций */
+   detailsLink ('.catalog-item__link-details');
+   detailsLink ('.catalog-item__link-back');
+   validateForms('.consultation-form');
+   validateForms('#consultation form');
+   validateForms('#order form');
 });

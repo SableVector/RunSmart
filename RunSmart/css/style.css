@@ -310,6 +310,18 @@ ul {
   margin-bottom: 36px;
 }
 
+.consultation .error {
+  border: 2px solid #C70101;
+}
+
+.consultation label.error {
+  color: #fff;
+  border: none;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
 .carousel {
   padding: 81px 0;
 }
@@ -844,6 +856,17 @@ ul {
 
 .modal__subtitle--mini {
   margin-bottom: 0;
+}
+
+.modal .error {
+  border: 1px solid #C70101;
+}
+
+.modal label.error {
+  border: none;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 #consultation,
