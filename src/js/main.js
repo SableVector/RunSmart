@@ -33,7 +33,7 @@ $(document).ready(function () {
 
    // Скрипт для отображения описания товара в карточках
 
-   function detailsLink (link) {
+   function detailsLink(link) {
       $(link).each(function (i) {
          $(this).on('click', function (e) {
             e.preventDefault();
@@ -42,7 +42,7 @@ $(document).ready(function () {
       });
    };
 
-   
+
    // Модальные окна
 
    $('[data-modal=consultation]').on('click', function () {
@@ -63,6 +63,8 @@ $(document).ready(function () {
    $('.modal__close').on('click', function () {
       $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
    });
+
+   // Скрипт на плавный скрол
 
    $('.promo__link-item a').on('click', function () {
       let el = $(this);
@@ -108,11 +110,30 @@ $(document).ready(function () {
    // $("#ssn").mask("999-99-9999");
 
 
+   // Скрипт работающий с отправкой Форм на серер.
 
-   
+   $('form').submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+          type: "POST",
+          url: "apps/mailer/smart.php",
+          data: $(this).serialize()
+      }).done(function() {
+          $(this).find("input").val("");
+          $('#consultation, #order').fadeOut();
+          $('.overlay, #thanks').fadeIn('slow');
+
+          $('form').trigger('reset');
+      });
+      return false;
+  });
+
+
+
+
    /* Вызов функций */
-   detailsLink ('.catalog-item__link-details');
-   detailsLink ('.catalog-item__link-back');
+   detailsLink('.catalog-item__link-details');
+   detailsLink('.catalog-item__link-back');
    validateForms('.consultation-form');
    validateForms('#consultation form');
    validateForms('#order form');

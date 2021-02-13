@@ -22,6 +22,8 @@ let path = {
 		img: project_folder + "/img/",
 		/* путь fonts файлов */
 		fonts: project_folder + "/fonts/",
+		/* путь к папке с дополнениями apps */
+		apps: project_folder + "/apps/",
 	},
 	/* путь куда gulp выгружает рабочии файлы */
 	src: {
@@ -37,7 +39,9 @@ let path = {
 		/* путь fonts c расширением ttf файлов */
 		fonts: source_folder + "/fonts/*.ttf",
 		/* путь в папку css */
-		copyCss: source_folder + "/css/*.css",
+		coppyCss: source_folder + "/css/*.css",
+		/* путь к папке с дополнениями apps */
+		apps: source_folder + "/apps/**/*.*",
 	},
 	/* путь куда gulp выгружает файлы которые он отслеживает*/
 	watch: {
@@ -51,7 +55,9 @@ let path = {
 		/* путь картинки с расширением jpg,png,svg,gif,ico,webp файлов */
 		img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
 		/* путь .css файлов */
-		copyCss: source_folder + "/css/**/*.css",
+		coppyCss: source_folder + "/css/**/*.css",
+		/* путь к папке mailer */
+		apps: project_folder + "/apps/**/*.*",
 	},
 
 	/* путь удаление папки при каждом запуске Gulp */
@@ -142,8 +148,8 @@ function css() {
 }
 
 /* Функция для копирования папки css */
-function copyCss() {
-	return src(path.src.copyCss)
+function coppyCss() {
+	return src(path.src.coppyCss)
 		.pipe(dest(path.build.css))
 		.pipe(browsersync.stream())
 		.pipe(clean_css())
@@ -232,8 +238,11 @@ function fontsStyle(params) {
 
 function cb() { }
 
-
-
+/* фуркция для копирования папки с ее содержимым */
+function coppyDir() {
+	return src(path.src.apps)
+		.pipe(dest(path.build.apps))
+}
 
 
 /* Функция для отслеживания изменений */
@@ -242,7 +251,7 @@ function watchFiles(params) {
 	gulp.watch([path.watch.css], css);
 	gulp.watch([path.watch.js], js);
 	gulp.watch([path.watch.img], images);
-	gulp.watch([path.watch.copyCss], copyCss);
+	gulp.watch([path.watch.coppyCss], coppyCss);
 }
 
 
@@ -258,10 +267,11 @@ function clean(params) {
 
 
 /* переменная для отслеживания (дружба между Gulp и переменными) */
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, copyCss), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, coppyCss,coppyDir), fontsStyle);
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
-exports.copyCss = copyCss;
+exports.coppyDir = coppyDir;
+exports.coppyCss = coppyCss;
 exports.fontsStyle = fontsStyle;
 exports.html = html;
 exports.css = css;
@@ -271,6 +281,3 @@ exports.fonts = fonts;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
-
-
-
