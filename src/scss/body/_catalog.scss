@@ -1,5 +1,8 @@
 .catalog {
    padding-bottom: 100px;
+
+   animation: fadeInUp; /* referring directly to the animation's @keyframe declaration */
+   animation-duration: 2s; /* don't forget to set a duration! */
    &__title {
       margin: 0 auto 70px;
    }
@@ -113,9 +116,8 @@
       justify-content: space-between;
       align-items: center;
 
-
-         padding-top: 21px;
-         border-top: 1px solid $silver;
+      padding-top: 21px;
+      border-top: 1px solid $silver;
    }
 
    &__prices {
@@ -149,8 +151,8 @@
       left: 0;
       transform: translateX(-150%);
       background-color: #fff;
-      transition: .3s all;
-      
+      transition: 0.3s all;
+
       &--active {
          transform: translateX(0);
       }
@@ -166,7 +168,7 @@
          margin-bottom: 20px;
 
          &::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 5px;
             left: 0;
@@ -174,8 +176,6 @@
             height: 5px;
             background-color: $main-color;
          }
-
       }
    }
 }
-

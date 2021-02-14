@@ -64,22 +64,6 @@ $(document).ready(function () {
       $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
    });
 
-   // Скрипт на плавный скрол
-
-   $('.promo__link-item a').on('click', function () {
-      let el = $(this);
-      let dest = el.attr('href', '#catalog'); // получаем направление
-      let ScrolToCatalog = el.attr('href');
-
-      $('html, body').animate({
-         scrollTop: $(ScrolToCatalog).offset().top
-      }, {
-         duration: 1500,   // по умолчанию «400» 
-         easing: "linear" // по умолчанию «swing» 
-      });
-      return false;
-   });
-
    // Validy scripts
    function validateForms(form) {
       $(form).validate({
@@ -112,21 +96,46 @@ $(document).ready(function () {
 
    // Скрипт работающий с отправкой Форм на серер.
 
-   $('form').submit(function(e) {
+   $('form').submit(function (e) {
       e.preventDefault();
       $.ajax({
-          type: "POST",
-          url: "apps/mailer/smart.php",
-          data: $(this).serialize()
-      }).done(function() {
-          $(this).find("input").val("");
-          $('#consultation, #order').fadeOut();
-          $('.overlay, #thanks').fadeIn('slow');
+         type: "POST",
+         url: "apps/mailer/smart.php",
+         data: $(this).serialize()
+      }).done(function () {
+         $(this).find("input").val("");
+         $('#consultation, #order').fadeOut();
+         $('.overlay, #thanks').fadeIn('slow');
 
-          $('form').trigger('reset');
+         $('form').trigger('reset');
       });
       return false;
-  });
+   });
+
+   /* Скрипт по отображению кнопки сбоку */
+
+   $(window).scroll(function () {
+      if ($(this).scrollTop() > 700) {
+         $('.page-up').fadeIn();
+      } else {
+         $('.page-up').fadeOut();
+      }
+   });
+
+   // Скрипт на плавный скрол
+
+   $(function () {
+      $("a[href^='#']").click(function () {
+         const _href = $(this).attr("href");
+         $("html, body").animate({
+            scrollTop: $(_href).offset().top
+         }, {
+            duration: 1500,   // по умолчанию «400» 
+            easing: "linear" // по умолчанию «swing» 
+         });
+         return false;
+      });
+   });
 
 
 
@@ -137,4 +146,9 @@ $(document).ready(function () {
    validateForms('.consultation-form');
    validateForms('#consultation form');
    validateForms('#order form');
+
+   
+
+   /* Скрипт подключающий WOW.js (Анимация) */
+   new WOW().init();
 });
